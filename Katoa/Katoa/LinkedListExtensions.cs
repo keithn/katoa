@@ -4,6 +4,13 @@ namespace Katoa
 {
     public static class LinkedListExtensions
     {
+        public static LinkedListNode<T> Remove<T>(this LinkedListNode<T> node)
+        {
+            var next = node.Next;
+            node.List.Remove(node);
+            return next;
+        }
+
         public static LinkedListNode<T> Rotate<T>(this LinkedListNode<T> node, int amount) 
         {
             if (amount > 0)

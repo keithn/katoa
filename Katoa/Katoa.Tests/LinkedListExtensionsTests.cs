@@ -21,5 +21,15 @@ namespace Katoa.Tests
             Assert.Equal(3, c.Rotate(1).Value);
             Assert.Equal(1, c.Rotate(-1).Value);
         }
+        
+        [Fact]
+        public void Remove()
+        {
+            var list = new LinkedList<int>(new[] { 1, 2, 3, 4 });
+
+            var c = list.First.Rotate(-1);
+
+            Assert.Equal(3, c.Remove().Value);
+        }
     }
 }
