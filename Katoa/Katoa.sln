@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katoa", "Katoa\Katoa.csproj", "{7705D1C7-00A1-40A6-B5A0-576C573630F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Katoa.Tests", "Katoa.Tests\Katoa.Tests.csproj", "{BE5EB44F-5BB9-4381-8EA1-5CA8D0E727CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7705D1C7-00A1-40A6-B5A0-576C573630F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7705D1C7-00A1-40A6-B5A0-576C573630F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7705D1C7-00A1-40A6-B5A0-576C573630F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7705D1C7-00A1-40A6-B5A0-576C573630F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE5EB44F-5BB9-4381-8EA1-5CA8D0E727CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE5EB44F-5BB9-4381-8EA1-5CA8D0E727CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE5EB44F-5BB9-4381-8EA1-5CA8D0E727CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE5EB44F-5BB9-4381-8EA1-5CA8D0E727CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {487EC8B2-82FD-4B0A-B529-DF3E59204471}
+	EndGlobalSection
+EndGlobal
