@@ -20,6 +20,7 @@ namespace Katoa
             return xXyY(0, 0, maxX, maxY, f, each);
         }
 
+
         public static void xXyY(int minX, int minY, int maxX, int maxY, Action<int, int> f, Action<int>  each = null)
         {
             for (int x = minX; x < maxX; x++)
@@ -44,12 +45,12 @@ namespace Katoa
             }
         }
 
-        public static IEnumerable<R> yYxX<R>(int minY, int minX, int maxY, int maxX, Func<int, int, R> f, Action<int> each = null)
+        public static IEnumerable<R> yYxX<R>(int minX, int minY,  int maxX, int maxY,Func<int, int, R> f, Action<int> each = null)
         {
             return xXyY(minY, minX, maxY, maxX, (y,x) => f(x,y), each);
         }
 
-        public static void yYxX(int minY, int minX, int maxY, int maxX, Action<int, int> f, Action<int> each = null)
+        public static void yYxX(int minX, int minY, int maxX, int maxY, Action<int, int> f, Action<int> each = null)
         {
             xXyY(minY, minX, maxY, maxX, (y,x) => f(x,y), each);
         }

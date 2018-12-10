@@ -12,7 +12,7 @@ namespace Katoa
 
         public static List<int> FromTo(int start, int end)
         {
-            return Enumerable.Range(start, end-start).ToList();
+            return Enumerable.Range(start, end-start+1).ToList();
         }
     }
 }

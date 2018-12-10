@@ -11,8 +11,9 @@ namespace Katoa
             return (c.Min(), c.Max());
         }
 
-        public static (T,T) MinMax<T,X>(this ICollection<X> c, Func<X,T> minSelect, Func<X, T> maxSelect)
+        public static (T,T) MinMax<T,X>(this ICollection<X> c, Func<X,T> minSelect, Func<X, T> maxSelect = null)
         {
+            if (maxSelect == null) maxSelect = minSelect;
             return (c.Min(minSelect), c.Max(maxSelect));
         }
     }

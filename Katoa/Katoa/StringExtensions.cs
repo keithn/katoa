@@ -25,6 +25,11 @@ namespace Katoa
             return s.Split(chars.ToArray(), options).Select(v => trim ? v.Trim() : v).ToArray();
         }
 
+        public static string[] Extract(this string s, string regexFragment)
+        {
+            return new string[]{};
+        }
+
         public static int[] ExtractInts(this string s)
         {
             var matches = _extractIntRegex.Matches(s);

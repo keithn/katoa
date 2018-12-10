@@ -18,10 +18,9 @@ namespace Katoa.Tests
         void MakeFromTo()
         {
             var list = Make.FromTo(5, 10);
-            Assert.Equal(5, list.Count);
+            Assert.Equal(6, list.Count);
             Assert.Equal(5, list.First());
-            Assert.Equal(9, list.Last());
+            Assert.Equal(10, list.Last());
         }
-
     }
 }
