@@ -8,6 +8,13 @@ namespace Katoa.Tests
     public class StringExtensionsTests
     {
         [Fact]
+        public void Extract()
+        {
+            Assert.Equal(new []{"10", "11"}, "one 10 two 11".Extract(@"\d+"));
+            Assert.Equal(new []{"one", "two"}, "one 10 two 11".Extract(@"[a-zA-Z]+"));
+        }
+
+        [Fact]
         public void FileAndToFile()
         {
             "blah".ToFile("blah.txt");

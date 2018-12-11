@@ -12,8 +12,8 @@ namespace Katoa.Tests
         {
             var list = new LinkedList<int>(new[] { 1, 2, 3, 4 });
 
-            Assert.Equal(4, list.First.Rotate(1).Value);
-            Assert.Equal(2, list.First.Rotate(-1).Value);
+            Assert.Equal(2, list.First.Rotate(1).Value);
+            Assert.Equal(4, list.First.Rotate(-1).Value);
             Assert.Equal(3, list.First.Rotate(-2).Value);
 
             var c = list.First.Rotate(1);
@@ -27,9 +27,12 @@ namespace Katoa.Tests
         {
             var list = new LinkedList<int>(new[] { 1, 2, 3, 4 });
 
-            var c = list.First.Rotate(-1);
-
+            var c = list.First.Rotate(1);
             Assert.Equal(3, c.Remove().Value);
+
+            c = list.First.Rotate(-1);
+            Assert.Equal(4, c.Value);
+            Assert.Equal(1, c.Remove().Value);
         }
     }
 }

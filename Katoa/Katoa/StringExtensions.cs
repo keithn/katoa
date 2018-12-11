@@ -27,7 +27,9 @@ namespace Katoa
 
         public static string[] Extract(this string s, string regexFragment)
         {
-            return new string[]{};
+            return new Regex($"({regexFragment})").Matches(s)
+                .SelectMany(m => m.Captures.Select(v => v.Value))
+                .ToArray();
         }
 
         public static int[] ExtractInts(this string s)

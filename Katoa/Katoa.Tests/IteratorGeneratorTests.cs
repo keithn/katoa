@@ -56,7 +56,10 @@ namespace Katoa.Tests
 
             var rows = new List<int>();
             var bucket = new List<(int, int)>();
-            Iterator.yYxX(5, 5, 10, 10, (x, y) => bucket.Add((x, y)), y => rows.Add(y) );
+            Iterator.yYxX(5, 5, 10, 10, (x, y) =>
+            {
+                bucket.Add((x, y));
+            }, y => rows.Add(y) );
             Assert.Equal(25, bucket.Count);
             Assert.Equal((5,5), bucket.First());
             Assert.Equal(5, rows.Count);
