@@ -81,7 +81,18 @@ namespace Katoa.Tests
         public void Between()
         {
             Assert.Equal("1518-09-04 00:00", "[1518-09-04 00:00] Guard #3433 begins shift".Between("[","]"));
+        }
 
+        [Fact]
+        public void Repeat()
+        {
+            Assert.Equal("abcabcabc", "abc".Repeat(3));
+        }
+
+        [Fact]
+        void ToStringArray()
+        {
+            Assert.Equal(new []{"a","b", "c"}, "abc".ToStringArray());
         }
     }
 }

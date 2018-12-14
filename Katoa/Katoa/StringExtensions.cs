@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Katoa
@@ -44,29 +45,20 @@ namespace Katoa
             return s.Substring(start+1, s.IndexOf(after)-start-1);
         }
 
-        public static string[] SplitTuple(this string s, (string s1, string s2) tuple, StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries)
+        public static string Repeat(this string s, int count)
         {
-            return s.Split(new[]{tuple.s1, tuple.s2}, options);
+            var sb = new StringBuilder();
+            for(int i =0 ; i <count; i++)
+            {
+                sb.Append(s);
+            }
+            return sb.ToString();
         }
 
-        public static string[] SplitTuple(this string s, (string s1, string s2, string s3) tuple, StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries)
+        public static string[] ToStringArray(this string s)
         {
-            return s.Split(new[]{tuple.s1, tuple.s2, tuple.s3}, options);
+            return s.ToCharArray().Select(c => c.ToString()).ToArray();
         }
 
-        public static string[] SplitTuple(this string s, (string s1, string s2, string s3, string s4) tuple, StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries)
-        {
-            return s.Split(new[]{tuple.s1, tuple.s2, tuple.s3, tuple.s4}, options);
-        }
-
-        public static string[] SplitTuple(this string s, (string s1, string s2, string s3, string s4, string s5) tuple, StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries)
-        {
-            return s.Split(new[]{tuple.s1, tuple.s2, tuple.s3, tuple.s4, tuple.s5}, options);
-        }
-
-        public static string[] SplitTuple(this string s, (string s1, string s2, string s3, string s4, string s5, string s6) tuple, StringSplitOptions options = StringSplitOptions.RemoveEmptyEntries)
-        {
-            return s.Split(new[]{tuple.s1, tuple.s2, tuple.s3, tuple.s4, tuple.s5, tuple.s6}, options);
-        }
     }
 }
