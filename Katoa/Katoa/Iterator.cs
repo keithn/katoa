@@ -39,6 +39,13 @@ namespace Katoa
             return c;
         }
 
+        public static ICollection<T> For<T>(this ICollection<T> c, int start, Action<int> action)
+        {
+            if (start < 0) start = c.Count + start;
+            (start,c.Count-1).For(action);
+            return c;
+        }
+
         public static void XY(int maxX, int maxY, Action<int, int> f, Action<int>  each = null)
         {
             xXyY(0, 0, maxX, maxY, f, each);
