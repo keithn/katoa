@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <Authors>Keith Nicholas</Authors>
     <PackageId>Katoa</PackageId>
     <Description>Extension Methods inspired by things missing when doing Advent Of Code</Description>
     <PackageTags />
     <RepositoryUrl>https://github.com/keithn/katoa</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0-alpha</Version>
+    <Version>1.1.1-alpha</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
