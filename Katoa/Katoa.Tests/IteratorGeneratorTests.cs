@@ -80,6 +80,18 @@ namespace Katoa.Tests
         }
 
         [Fact]
+        public void ForWithStep()
+        {
+            var list = new List<int>();
+            (1,10,2).For(i =>
+            {
+                list.Add(i);
+            });
+            Assert.Equal(5, list.Count);
+            Assert.Equal(new[]{1,3,5,7,9},list.ToArray());
+        }
+
+        [Fact]
         public void ForDown()
         {
             var list = new List<int>();

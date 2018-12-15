@@ -10,22 +10,26 @@ namespace Katoa
             foreach (var _ in l) ;
         }
 
-        public static void For(this (int, int) range, Action<int> action)
+        public static void For(this (int, int, int) range, Action<int> action)
         {
             if (range.Item1 <= range.Item2)
             {
-                for (int i = range.Item1; i <= range.Item2; i++)
+                for (int i = range.Item1; i <= range.Item2; i += range.Item3)
                 {
                     action(i);
                 }
             }
             else
             {
-                for (int i = range.Item1; i >= range.Item2; i--)
+                for (int i = range.Item1; i >= range.Item2; i += range.Item3)
                 {
                     action(i);
                 }
             }
+        }
+        public static void For(this (int, int) range, Action<int> action)
+        {
+            (range.Item1, range.Item2, range.Item1 > range.Item2 ? -1 : 1).For(action);
         }
 
 
