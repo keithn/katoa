@@ -10,6 +10,31 @@ namespace Katoa
             foreach (var _ in l) ;
         }
 
+        public static void For(this (int, int) range, Action<int> action)
+        {
+            if (range.Item1 <= range.Item2)
+            {
+                for (int i = range.Item1; i <= range.Item2; i++)
+                {
+                    action(i);
+                }
+            }
+            else
+            {
+                for (int i = range.Item1; i >= range.Item2; i--)
+                {
+                    action(i);
+                }
+            }
+        }
+
+
+        public static ICollection<T> For<T>(this ICollection<T> c, Action<int> action)
+        {
+            (0,c.Count-1).For(action);
+            return c;
+        }
+
         public static void XY(int maxX, int maxY, Action<int, int> f, Action<int>  each = null)
         {
             xXyY(0, 0, maxX, maxY, f, each);

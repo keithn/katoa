@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -64,5 +65,44 @@ namespace Katoa.Tests
             Assert.Equal((5,5), bucket.First());
             Assert.Equal(5, rows.Count);
         }
+
+
+        [Fact]
+        public void ForUp()
+        {
+            var list = new List<int>();
+            (1,10).For(i =>
+            {
+                list.Add(i);
+            });
+            Assert.Equal(10, list.Count);
+            Assert.Equal(new[]{1,2,3,4,5,6,7,8,9,10},list.ToArray());
+        }
+
+        [Fact]
+        public void ForDown()
+        {
+            var list = new List<int>();
+            (10,1).For(i =>
+            {
+                list.Add(i);
+            });
+            Assert.Equal(10, list.Count);
+            Assert.Equal(new[]{10,9,8,7,6,5,4,3,2,1},list.ToArray());
+        }
+
+        [Fact]
+        void ForCollection()
+        {
+            var result = new List<int>();
+            var list = new[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+            list.For(i =>
+            {
+                result.Add(i);
+            });
+            Assert.Equal(10, result.Count);
+            Assert.Equal(new[]{0, 1,2,3,4,5,6,7,8,9},result.ToArray());
+        }
+
     }
 }
