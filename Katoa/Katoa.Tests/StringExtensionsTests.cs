@@ -94,5 +94,13 @@ namespace Katoa.Tests
         {
             Assert.Equal(new []{"a","b", "c"}, "abc".ToStringArray());
         }
+
+        [Fact]
+        void RangeFun()
+        {
+            Assert.Equal("abc", "1abc2".Range((1,-1)));
+            Assert.Equal("cba", "1abc2".Range((-1,1)));
+            Assert.Equal("a", "1abc2".Range((1,2)));
+        }
     }
 }

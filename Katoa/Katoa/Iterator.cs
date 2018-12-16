@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Katoa
 {
@@ -43,6 +44,28 @@ namespace Katoa
         {
             if (start < 0) start = c.Count + start;
             (start,c.Count-1).For(action);
+            return c;
+        }
+
+        public static ICollection<T> Each<T>(this ICollection<T> c, Action<T> action)
+        {
+           return c.Each((t, i) => action(t));
+        }
+
+        public static ICollection<T> Each<T>(this ICollection<T> c, Action<T, int> action)
+        {
+            return c.Each(0, action);
+        }
+
+        public static ICollection<T> Each<T>(this ICollection<T> c, int start, Action<T> action)
+        {
+            return c.Each(start, (t, i) => action(t));
+        }
+
+        public static ICollection<T> Each<T>(this ICollection<T> c, int start, Action<T, int> action)
+        {
+            if (start < 0) start = c.Count + start;
+            (start,c.Count-1).For(i => action(c.ElementAt(i), i));
             return c;
         }
 

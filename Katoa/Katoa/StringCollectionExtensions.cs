@@ -9,6 +9,7 @@ namespace Katoa
         {
             return c.Select(s => s.Trim());
         }
+
         public static IEnumerable<int[]> ExtractInts(this string[] strings)
         {
             return strings.Select(s => s.ExtractInts());

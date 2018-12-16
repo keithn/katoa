@@ -34,6 +34,25 @@ namespace Katoa
                 .ToArray();
         }
 
+        public static string Reverse(this string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
+
+        public static string Range(this string s, (int, int) range)
+        {
+            var start = range.Item1 < 0 ? s.Length + range.Item1 : range.Item1;
+            var end = range.Item2 < 0 ? s.Length + range.Item2 : range.Item2;
+
+            if (end < start )
+            {
+                return s.Substring(end, start - end).Reverse();
+            }
+            return s.Substring(start, end - start);
+        }
+
         public static int[] ExtractInts(this string s)
         {
             var matches = _extractIntRegex.Matches(s);
