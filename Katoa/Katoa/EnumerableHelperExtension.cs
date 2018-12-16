@@ -44,5 +44,35 @@ namespace Katoa
         }
 
 
+        public static T Pop<T>(this IList<T> l)
+        {
+            var t = l[0];
+            l.RemoveAt(0);
+            return t;
+        }
+
+        public static IList<T> Push<T>(this IList<T> l, T item)
+        {
+            l.Insert(0, item);
+            return l;
+        }
+
+        public static IList<T> Remove<T>(this IList<T> l, Func<T, bool> predicate)
+        {
+            return l.Remove((t, i) => predicate(t));
+        }
+
+        public static IList<T> Remove<T>(this IList<T> l, Func<T,int, bool> predicate)
+        {
+            int offset = 0;
+            var indexes = l.Select((t, i) => (t, i)).Where((t => predicate(t.Item1, t.Item2))).ToList();
+            foreach (var tuple in indexes)
+            {
+                l.RemoveAt(tuple.Item2 + offset);
+                offset--;
+            }
+            return l;
+        }
+
     }
 }

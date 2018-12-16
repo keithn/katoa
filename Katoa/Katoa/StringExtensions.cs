@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -60,5 +61,25 @@ namespace Katoa
             return s.ToCharArray().Select(c => c.ToString()).ToArray();
         }
 
+        public static IEnumerable<string> Chunk(this string s, int size)
+        {
+            for (int i = 0; i < s.Length; i += size)
+                yield return s.Substring(i, Math.Min(size, s.Length - i));
+        }
+
+        public static string After(this string s, string after)
+        {
+            int start = s.IndexOf(after, 0, StringComparison.Ordinal);
+            if (start == -1)  return ""; 
+            start += after.Length;
+            return s.Remove(0, start);
+        }
+
+        public static string Before(this string s, string before)
+        {
+            int start = s.IndexOf(before, 0, StringComparison.Ordinal);
+            if (start == -1) return "";
+            return s.Remove(start);
+        }
     }
 }
